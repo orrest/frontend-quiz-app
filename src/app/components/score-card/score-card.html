@@ -1,1 +1,15 @@
-<p>score-card works!</p>
+@if (headerTemplate()) {
+  <ng-container [ngTemplateOutlet]="headerTemplate()"></ng-container>
+}
+
+<div
+  class="text-[5.5rem] tracking-normal leading-none text-blue-900 md:text-[9rem] font-medium mt-4 md:mt-10"
+>
+  {{ score() }}
+</div>
+
+<div
+  class="text-[1.125rem] text-grey-500 leading-none font-medium tracking-normal md:text-[1.5rem] md:leading-normal mt-4"
+>
+  out of {{ total() }}
+</div>

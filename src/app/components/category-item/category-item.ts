@@ -10,8 +10,8 @@ import { Component, input } from '@angular/core';
   },
 })
 export class CategoryItem {
-  icon = input('');
-  title = input('');
+  icon = input.required<string>();
+  title = input.required<string>();
   class = input('');
   iconClass = input('');
 }
