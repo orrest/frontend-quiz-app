@@ -1,5 +1,26 @@
 /* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@1,300..500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@300..500&display=swap");
 @import "tailwindcss";
+
+@theme {
+  --color-grey-500: #626c7f;
+  --color-grey-50: #f4f6fa;
+  --color-blue-950: #2d3949;
+  --color-blue-900: #313e51;
+  --color-blue-850: #3b4d66;
+  --color-blue-500: #306aff;
+  --color-blue-300: #abc1e1;
+  --color-blue-100: #edf1f9;
+  --color-blue-50: #ebf0ff;
+  --color-green-500: #2fd887;
+  --color-green-100: #e0fdef;
+  --color-purple-600: #a729f5;
+  --color-purple-100: #f6e7ff;
+  --color-orange-400: #ff7e35;
+  --color-orange-50: #fff5ed;
+  --color-red-500: #ee5454;
+}
 
 @layer base {
   /* Box sizing rules */
@@ -7,6 +28,7 @@
   *::before,
   *::after {
     box-sizing: border-box;
+    font-family: "Rubik", sans-serif;
   }
 
   /* Prevent font size inflation */
@@ -91,5 +113,29 @@
   /* Anything that has been anchored to should have extra scroll margin */
   :target {
     scroll-margin-block: 5ex;
+  }
+
+  h1 {
+    /* 40 -- 64 */
+    font-size: clamp(2.5rem, 1.0687rem + 6.1069vw, 4rem);
+    line-height: 100%;
+    letter-spacing: 0;
+    font-weight: 300;
+  }
+
+  small {
+    /* 14 -- 20 */
+    font-size: clamp(0.875rem, 0.5172rem + 1.5267vw, 1.25rem);
+    line-height: 150%;
+    letter-spacing: 0;
+    font-style: italic;
+  }
+
+  p {
+    /* 18 -- 28 */
+    font-size: clamp(1.125rem, 0.5286rem + 2.5445vw, 1.75rem);
+    line-height: 100%;
+    letter-spacing: 0;
+    font-weight: 500;
   }
 }
