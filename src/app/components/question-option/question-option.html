@@ -1,0 +1,36 @@
+<p
+  class="rounded-md size-10 flex items-center justify-center"
+  [ngClass]="{
+    'bg-red-500': status() === Status.Wrong,
+    'bg-green-500': status() === Status.Correct,
+    'bg-grey-50': status() === Status.Normal || status() === Status.Answer,
+    'text-white': status() === Status.Wrong || status() === Status.Correct,
+    'text-grey-500': status() === Status.Normal || status() === Status.Answer,
+  }"
+>
+  {{ option() }}
+</p>
+
+<p class="text-blue-900">
+  {{ description() }}
+</p>
+
+<div class="ml-auto">
+  @if (status() === Status.Answer || status() === Status.Correct) {
+    <img
+      class="size-6 md:size-[1.875rem]"
+      src="./assets/images/icon-correct.svg"
+      width="40"
+      height="40"
+      alt="correct icon"
+    />
+  } @else if (status() === Status.Wrong) {
+    <img
+      class="size-6 md:size-[1.875rem]"
+      src="./assets/images/icon-error.svg"
+      width="40"
+      height="40"
+      alt="error icon"
+    />
+  }
+</div>
