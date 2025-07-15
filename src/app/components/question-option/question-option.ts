@@ -1,13 +1,14 @@
-import { Component, HostBinding, input } from '@angular/core';
+import { Component, HostBinding, input, signal } from '@angular/core';
 import { NgClass } from '@angular/common';
 
-type Option = 'A' | 'B' | 'C' | 'D';
+export type Option = 'A' | 'B' | 'C' | 'D' | '';
 
 export enum Status {
   Normal = 0,
   Correct = 1,
   Wrong = 2,
   Answer = 3,
+  Selected = 4,
 }
 
 @Component({
@@ -24,7 +25,9 @@ export class QuestionOption {
   @HostBinding('class')
   get hostClasses(): string {
     const baseClasses =
-      'flex flex-row gap-4 p-4 bg-white rounded-xl items-center';
+      'flex flex-row gap-4 p-4 bg-white rounded-xl items-center ' +
+      'hover:outline-2 hover:outline-purple-600 hover:cursor-pointer ' +
+      'group';
 
     let statusClasses = '';
     switch (this.status()) {
@@ -33,6 +36,9 @@ export class QuestionOption {
         break;
       case Status.Correct:
         statusClasses = 'outline-2 outline-green-500';
+        break;
+      case Status.Selected:
+        statusClasses = 'outline-2 outline-purple-600';
         break;
     }
 

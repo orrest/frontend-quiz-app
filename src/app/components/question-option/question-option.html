@@ -1,11 +1,15 @@
 <p
-  class="rounded-md size-10 flex items-center justify-center"
+  class="rounded-md size-10 flex items-center justify-center group-hover:bg-purple-600 p-4 group-hover:text-white"
   [ngClass]="{
     'bg-red-500': status() === Status.Wrong,
     'bg-green-500': status() === Status.Correct,
     'bg-grey-50': status() === Status.Normal || status() === Status.Answer,
-    'text-white': status() === Status.Wrong || status() === Status.Correct,
+    'text-white':
+      status() === Status.Wrong ||
+      status() === Status.Correct ||
+      status() === Status.Selected,
     'text-grey-500': status() === Status.Normal || status() === Status.Answer,
+    'bg-purple-600': status() === Status.Selected,
   }"
 >
   {{ option() }}

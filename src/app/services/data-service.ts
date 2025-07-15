@@ -1,7 +1,8 @@
 import { inject, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { CategoryItemVm } from '../models/vms/category-item.vm';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, map, Observable, tap } from 'rxjs';
+import { CategoryQuestion, Result } from '../models/entities/question.entity';
 
 @Injectable({
   providedIn: 'root',
@@ -36,5 +37,24 @@ export class DataService {
         bgClass: 'bg-purple-100',
       },
     ];
+  }
+
+  getCategoryItem(category: string): CategoryItemVm {
+    return this.getCategoryItems().filter(
+      (c) => c.title.toLowerCase() === category.toLowerCase(),
+    )[0];
+  }
+
+  getCategoryQuestions(category: string): Observable<CategoryQuestion> {
+    return this.http
+      .get<Result>('./assets/data.json')
+      .pipe(
+        map(
+          (res) =>
+            res.quizzes.filter(
+              (cq) => cq.title.toLowerCase() === category.toLowerCase(),
+            )[0],
+        ),
+      );
   }
 }

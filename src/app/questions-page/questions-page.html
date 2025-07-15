@@ -1,1 +1,66 @@
-<p>questions-page works!</p>
+<article class="py-8 flex flex-col gap-10 lg:flex-row lg:gap-32">
+  <!--    header-->
+  <header class="flex flex-col lg:w-2/5">
+    <small class="mb-4 text-grey-500 sm:mb-6">
+      Question {{ currentNumber() }} of {{ questions()?.length }}
+    </small>
+    <p class="mb-6 text-blue-900 sm:mb-10">
+      {{ currentQuestion()().question }}
+    </p>
+    <app-progressbar
+      class="lg:mt-auto lg:mb-24"
+      [value]="currentProgress()"
+    ></app-progressbar>
+  </header>
+
+  <!--  content-->
+  <section class="flex flex-col gap-4 sm:gap-6 lg:w-3/5">
+    <!--    options-->
+    @for (op of currentQuestion()().options; track $index) {
+      <app-question-option
+        [option]="$index | option"
+        [description]="op.option"
+        [status]="
+          currentQuestion()().submitted
+            ? op.selected
+              ? op.isAnswer
+                ? Status.Correct
+                : Status.Wrong
+              : op.isAnswer
+                ? Status.Answer
+                : Status.Normal
+            : op.selected
+              ? Status.Selected
+              : Status.Normal
+        "
+        (click)="onOptionClick(currentQuestion(), $index)"
+      ></app-question-option>
+    }
+
+    <!--    button-->
+    <section class="flex flex-col items-center gap-4 md:gap-8">
+      <div class="w-full">
+        @if (lastSubmittedQuestion()) {
+          <app-button
+            (click)="toScorePage()"
+            [text]="'Check Result'"
+          ></app-button>
+        } @else if (!currentQuestion()().submitted) {
+          <app-button
+            (click)="submit(currentQuestion())"
+            [text]="'Submit Answer'"
+          ></app-button>
+        } @else {
+          <app-button
+            (click)="nextQuestion()"
+            [text]="'Next Question'"
+          ></app-button>
+        }
+      </div>
+
+      @if (error$ | async; as err) {
+        <app-error-msg [err]="err"></app-error-msg>
+      }
+    </section>
+  </section>
+</article>

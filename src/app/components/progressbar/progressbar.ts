@@ -1,15 +1,20 @@
 import { Component, input } from '@angular/core';
 
+/**
+ * 0 ~ 100
+ */
 @Component({
   selector: 'app-progressbar',
   imports: [],
   templateUrl: './progressbar.html',
   styleUrl: './progressbar.css',
   host: {
-    '[class]': "'flex bg-white p-1 h-4 items-center rounded-full'",
+    '[class]': "'flex bg-white p-1 h-4 items-center rounded-full ' + class",
   },
 })
 export class Progressbar {
+  class = input('');
+
   value = input.required<number, number>({
     transform: (value: number) => {
       if (value < 0) {
