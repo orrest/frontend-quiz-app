@@ -6,7 +6,8 @@ import { Component, input } from '@angular/core';
   templateUrl: './category-item.html',
   styleUrl: './category-item.css',
   host: {
-    '[class]': "'flex flex-row items-center gap-4 md:gap-6 ' + class",
+    '[class]':
+      "'flex flex-row items-center gap-4 md:gap-6 hover:cursor-pointer ' + class",
   },
 })
 export class CategoryItem {

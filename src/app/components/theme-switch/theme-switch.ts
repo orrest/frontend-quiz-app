@@ -1,4 +1,4 @@
-import { Component, output, signal } from '@angular/core';
+import { Component, input, output, signal } from '@angular/core';
 import { NgClass } from '@angular/common';
 
 export interface SwitchChangeEvent {
@@ -12,11 +12,12 @@ export interface SwitchChangeEvent {
   templateUrl: './theme-switch.html',
   styleUrl: './theme-switch.css',
   host: {
-    '[class]': "'flex flex-row gap-2 items-center md:gap-4'",
+    '[class]': '`flex flex-row gap-2 items-center md:gap-4` + class()',
     '(click)': 'onClick($event)',
   },
 })
 export class ThemeSwitch {
+  class = input('');
   onChange = output<SwitchChangeEvent>();
 
   checked = signal(false);

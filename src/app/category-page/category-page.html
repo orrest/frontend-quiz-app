@@ -1,0 +1,21 @@
+<article
+  class="text-blue-900 flex flex-col gap-10 sm:gap-16 md:flex-row md:gap-32"
+>
+  <!--  header-->
+  <header class="flex flex-col gap-4 md:gap-12">
+    <h1 class="md:text-nowrap">Welcome to the<br /><b>Frontend Quiz!</b></h1>
+    <small class="md:text-nowrap">Pick a subject to get started.</small>
+  </header>
+
+  <!--  categories-->
+  <section class="flex flex-col gap-4 sm:gap-6 md:gap-4 w-full">
+    @for (c of categories; track c.title) {
+      <app-category-item
+        [icon]="c.icon"
+        [title]="c.title"
+        class="bg-white p-4 rounded-xl md:p-6 sm:rounded-3xl drop-shadow-xs"
+        [iconClass]="c.bgClass"
+      ></app-category-item>
+    }
+  </section>
+</article>
