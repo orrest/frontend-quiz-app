@@ -2,10 +2,15 @@
   class="flex flex-col px-6 sm:px-16 md:px-32 min-h-screen bg-no-repeat bg-grey-50 bg-[url(./assets/images/pattern-background-mobile-light.svg)] sm:bg-[url(./assets/images/pattern-background-tablet-light.svg)] md:bg-[url(./assets/images/pattern-background-desktop-light.svg)]"
 >
   <header class="flex flex-row py-4 sm:py-8 md:py-16 items-center">
-    <app-category-item
-      icon="./assets/images/icon-js.svg"
-      title="Javascript"
-    ></app-category-item>
+    @if (selectedCategory$ | async; as selectedCategory) {
+      @if (selectedCategory) {
+        <app-category-item
+          [icon]="selectedCategory.icon"
+          [title]="selectedCategory.title"
+          [iconClass]="selectedCategory.bgClass"
+        ></app-category-item>
+      }
+    }
     <app-theme-switch class="ml-auto"></app-theme-switch>
   </header>
   <router-outlet></router-outlet>

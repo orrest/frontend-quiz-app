@@ -1,12 +1,17 @@
 import { inject, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { CategoryItemVm } from '../models/vms/category-item.vm';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class DataService {
   private http = inject(HttpClient);
+
+  public selectedCategory = new BehaviorSubject<CategoryItemVm | undefined>(
+    undefined,
+  );
 
   getCategoryItems(): CategoryItemVm[] {
     return [
