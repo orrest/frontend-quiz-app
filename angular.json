@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "password-generator-app": {
+    "frontend-quiz-app": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -54,10 +54,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "password-generator-app:build:production"
+              "buildTarget": "frontend-quiz-app:build:production"
             },
             "development": {
-              "buildTarget": "password-generator-app:build:development"
+              "buildTarget": "frontend-quiz-app:build:development"
             }
           },
           "defaultConfiguration": "development"
