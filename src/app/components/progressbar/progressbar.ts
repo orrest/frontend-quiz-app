@@ -9,7 +9,8 @@ import { Component, input } from '@angular/core';
   templateUrl: './progressbar.html',
   styleUrl: './progressbar.css',
   host: {
-    '[class]': "'flex bg-white p-1 h-4 items-center rounded-full ' + class",
+    '[class]':
+      "'flex bg-white p-1 h-4 items-center rounded-full dark:bg-blue-850 ' + class",
   },
 })
 export class Progressbar {

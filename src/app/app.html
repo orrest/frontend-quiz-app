@@ -1,5 +1,8 @@
 <main
-  class="flex flex-col px-6 sm:px-16 md:px-32 min-h-screen bg-no-repeat bg-grey-50 bg-[url(./assets/images/pattern-background-mobile-light.svg)] sm:bg-[url(./assets/images/pattern-background-tablet-light.svg)] md:bg-[url(./assets/images/pattern-background-desktop-light.svg)]"
+  class="flex flex-col px-6 sm:px-16 md:px-32 min-h-screen bg-no-repeat bg-grey-50 bg-[url(./assets/images/pattern-background-mobile-light.svg)] sm:bg-[url(./assets/images/pattern-background-tablet-light.svg)] md:bg-[url(./assets/images/pattern-background-desktop-light.svg)] dark:bg-blue-900 dark:bg-[url(./assets/images/pattern-background-mobile-dark.svg)] sm:dark:bg-[url(./assets/images/pattern-background-tablet-dark.svg)] md:dark:bg-[url(./assets/images/pattern-background-desktop-dark.svg)]"
+  [ngClass]="{
+    dark: dark(),
+  }"
 >
   <header class="flex flex-row py-4 sm:py-8 md:py-16 items-center">
     @if (selectedCategory$ | async; as selectedCategory) {
@@ -11,7 +14,10 @@
         ></app-category-item>
       }
     }
-    <app-theme-switch class="ml-auto"></app-theme-switch>
+    <app-theme-switch
+      (onChange)="onChange($event)"
+      class="ml-auto"
+    ></app-theme-switch>
   </header>
   <router-outlet></router-outlet>
 </main>

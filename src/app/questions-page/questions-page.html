@@ -1,10 +1,10 @@
 <article class="py-8 flex flex-col gap-10 lg:flex-row lg:gap-32">
   <!--    header-->
   <header class="flex flex-col lg:w-2/5">
-    <small class="mb-4 text-grey-500 sm:mb-6">
+    <small class="mb-4 text-grey-500 dark:text-blue-300 sm:mb-6">
       Question {{ currentNumber() }} of {{ questions()?.length }}
     </small>
-    <p class="mb-6 text-blue-900 sm:mb-10">
+    <p class="mb-6 text-blue-900 dark:text-white sm:mb-10">
       {{ currentQuestion()().question }}
     </p>
     <app-progressbar

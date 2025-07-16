@@ -27,7 +27,8 @@ export class QuestionOption {
     const baseClasses =
       'flex flex-row gap-4 p-4 bg-white rounded-xl items-center ' +
       'hover:outline-2 hover:outline-purple-600 hover:cursor-pointer ' +
-      'group';
+      'group ' +
+      'dark:bg-blue-850';
 
     let statusClasses = '';
     switch (this.status()) {

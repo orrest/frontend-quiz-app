@@ -8,7 +8,7 @@ import { NgTemplateOutlet } from '@angular/common';
   styleUrl: './score-card.css',
   host: {
     '[class]':
-      "'flex flex-col items-center justify-center p-8 md:p-12 bg-white rounded-xl md:rounded-3xl'",
+      "'flex flex-col items-center justify-center p-8 md:p-12 bg-white rounded-xl md:rounded-3xl dark:bg-blue-850'",
   },
 })
 export class ScoreCard {

@@ -3,6 +3,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Rubik:wght@300..500&display=swap");
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
   --color-grey-500: #626c7f;
   --color-grey-50: #f4f6fa;
