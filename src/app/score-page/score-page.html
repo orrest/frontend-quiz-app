@@ -1,1 +1,23 @@
-<p>score-page works!</p>
+<article class="flex flex-col py-8 lg:flex-row lg:gap-36">
+  <header class="mb-10 sm:mb-16 lg:w-2/5">
+    <h1 class="md:text-nowrap">Quiz completed<br /><b>You scored...</b></h1>
+  </header>
+
+  <section class="flex flex-col gap-4 sm:gap-8 lg:w-3/5">
+    <app-score-card
+      [score]="vm().score"
+      [total]="vm().total"
+      [headerTemplate]="header"
+    >
+      <ng-template #header>
+        <app-category-item
+          [title]="vm().category"
+          [icon]="vm().icon"
+          [iconClass]="vm().iconBg"
+        ></app-category-item>
+      </ng-template>
+    </app-score-card>
+
+    <app-button [routerLink]="'/'" text="Play Again"></app-button>
+  </section>
+</article>

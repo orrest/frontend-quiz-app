@@ -16,7 +16,7 @@ import { AsyncPipe } from '@angular/common';
 export class App {
   private service = inject(DataService);
 
-  selectedCategory$!: Observable<CategoryItemVm | undefined>;
+  selectedCategory$!: Observable<CategoryItemVm | null>;
 
   constructor() {
     this.selectedCategory$ = this.service.selectedCategory.asObservable();

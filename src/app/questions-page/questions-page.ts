@@ -138,7 +138,7 @@ export class QuestionsPage implements OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.service.selectedCategory.next(undefined);
+    this.service.selectedCategory.next(null);
   }
 
   submit(question: WritableSignal<QuestionVm>) {
@@ -184,6 +184,8 @@ export class QuestionsPage implements OnDestroy {
         ...q,
         submitted: false,
         selected: true,
+        correct:
+          this.selectedOption().selected && this.selectedOption().isAnswer,
         options: updatedOptions,
       };
     });

@@ -10,9 +10,7 @@ import { CategoryQuestion, Result } from '../models/entities/question.entity';
 export class DataService {
   private http = inject(HttpClient);
 
-  public selectedCategory = new BehaviorSubject<CategoryItemVm | undefined>(
-    undefined,
-  );
+  public selectedCategory = new BehaviorSubject<CategoryItemVm | null>(null);
 
   getCategoryItems(): CategoryItemVm[] {
     return [
